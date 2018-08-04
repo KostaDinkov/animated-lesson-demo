@@ -1,6 +1,7 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const webpack = require('webpack')
 
 const config = {
@@ -21,9 +22,13 @@ const config = {
   plugins:[
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title:'Output management'
+      title:'Output management',
+      template:'index.html'
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new CopyWebpackPlugin([
+      {from:'static'}
+    ])
 
   ],
   module:{
