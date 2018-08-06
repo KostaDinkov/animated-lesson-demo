@@ -6,39 +6,53 @@ const webpack = require('webpack')
 
 const config = {
   mode: 'development',
-  entry:{
-    app:'./src/index.js',
+  entry: {
+    app: './src/index.js',
   },
-  output:{
-    filename:'[name].bundle.js',
+  output: {
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    
+
   },
-  devServer:{
-    contentBase:'./dist',
-    hot:true
+  devServer: {
+    contentBase: './dist',
+    hot: true
   },
-  devtool:'inline-source-map',
-  plugins:[
+  devtool: 'inline-source-map',
+  plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title:'Output management',
-      template:'index.html'
+      title: 'Output management',
+      template: 'index.html'
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new CopyWebpackPlugin([
-      {from:'static'}
-    ])
+    new CopyWebpackPlugin([{
+      from: 'static'
+    }])
 
   ],
-  module:{
-    rules:[
-      {
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
+  module: {
+
+    rules: [{
         test: /\.css$/,
         use: [
           'style-loader',
           'css-loader'
         ]
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['env', 'react']
+          }
+        }
+
       }
     ]
   }

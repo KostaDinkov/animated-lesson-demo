@@ -1,7 +1,18 @@
-import _join from 'lodash/join';
 import './style.css'
-import printMe from './print';
+import React from 'react';
+import ReactDom from 'react-dom';
+import App from './components/App';
 
-let workspacePlayground = Blockly.inject('blocklyDiv',
+
+ReactDom.render(<App/>,document.getElementById("app"));
+
+//inject blockly
+let workspace = Blockly.inject('blocklyDiv',
      {toolbox: document.getElementById('toolbox')});
+
+function myUpdateFunction(event) {
+  var code = Blockly.JavaScript.workspaceToCode(workspace);
+  document.getElementById('textArea').innerHTML = code;
+}
+workspace.addChangeListener(myUpdateFunction);
 
