@@ -12,6 +12,7 @@ const config = {
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath:'/'
 
   },
   devServer: {
@@ -22,7 +23,7 @@ const config = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'Output management',
+      title: 'Animated lesson',
       template: 'index.html'
     }),
     new webpack.HotModuleReplacementPlugin(),
@@ -36,11 +37,19 @@ const config = {
   },
   module: {
 
-    rules: [{
-        test: /\.css$/,
+    rules: [
+      {
+        test:/\.(png|jpg|gif)$/,
+        use:['file-loader']
+      },
+      {
+        test: /\.(css|scss)$/,
         use: [
           'style-loader',
-          'css-loader'
+          'css-loader',
+          
+          'sass-loader',
+          
         ]
       },
       {

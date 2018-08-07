@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
+import LessonLayout from './layout/LessonLayout'
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <h1>Hello from React</h1>
-      </div>
+      <LessonLayout footer={<div id='textArea' style={{color:"#fff"}}></div>}/>
     );
   }
 }
