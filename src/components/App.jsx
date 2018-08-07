@@ -1,10 +1,14 @@
-import React, { Component } from 'react';
-import LessonLayout from './layout/LessonLayout'
+import React, { Component } from 'react'; 
+import LessonLayout from './layout/LessonLayout' 
+import Stage from './Stage'
 
 class App extends Component {
   render() {
     return (
-      <LessonLayout footer={<div id='textArea' style={{color:"#fff"}}></div>}/>
+      <LessonLayout
+        stage={<Stage/>}
+        footer={<div id='textArea' style={{ color: "#fff" }}></div>} 
+      />
     );
   }
 }

@@ -17,7 +17,7 @@ const config = {
   },
   devServer: {
     contentBase: './dist',
-    hot: true
+    hot: false
   },
   devtool: 'inline-source-map',
   plugins: [
@@ -36,20 +36,19 @@ const config = {
     extensions: ['.js', '.jsx']
   },
   module: {
-
     rules: [
       {
         test:/\.(png|jpg|gif)$/,
+        exclude:/node_modules/,
         use:['file-loader']
       },
       {
         test: /\.(css|scss)$/,
+        exclude:/node_modules/,
         use: [
           'style-loader',
           'css-loader',
-          
           'sass-loader',
-          
         ]
       },
       {
@@ -57,9 +56,7 @@ const config = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            presets: ['env', 'react']
-          }
+          
         }
 
       }
