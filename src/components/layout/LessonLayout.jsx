@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+
 const Page = styled.div`
   height:100%;
   display:grid;
@@ -13,7 +14,7 @@ const Page = styled.div`
   
 `
 const Header = styled.div`
-  grid-column:1/2;
+  grid-column:1;
   /*background:rgba(194,0,196,0.5);*/
 `
 const Blocks = styled.div`
@@ -24,6 +25,7 @@ const Blocks = styled.div`
 
 const Stage = styled.div`
   grid-column:2;
+  grid-row:1/3;
   /*grid-area:stage;*/
   /*background:rgba(182,90,0,0.5);*/
 `
@@ -33,6 +35,8 @@ const Footer = styled.div`
   /*background:rgba(182,90,0,0.5);*/
 `
 class LessonLayout extends Component {
+
+  
   render() {
     return (
       <Page>
@@ -43,7 +47,16 @@ class LessonLayout extends Component {
           {this.props.blocks }
         </Blocks>
         <Stage>
-          {this.props.stage}
+          <iframe 
+            id='unityFrame'
+            src="./unity/index.html" 
+            className="webgl-content" 
+            scrolling='no'
+            frameBorder='1px'
+            height='100%'
+            width = '100%'
+            style={{border:"0px #000000 none"}}>
+          </iframe>
         </Stage>
         <Footer>
           {this.props.footer }

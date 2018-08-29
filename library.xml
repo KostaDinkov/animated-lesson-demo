@@ -1,0 +1,25 @@
+<xml xmlns="http://www.w3.org/1999/xhtml"><block type="factory_base" id="v@!BVq-}m1[VvIy-*IA`" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="TOP"></mutation>
+    <field name="NAME">Move Forward</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">TOP</field>
+    <value name="TOOLTIP">
+      <block type="text" id="Ca-MWX=bE?1n}l;!N]Bl" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="!NX@xI1#aB:RW$CXU,1W" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id=")`BXhE!qg25Q=Tz8%L|k"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="kAii[cdY_HYH*7v-,i.k">
+        <mutation colour="#a55b5b"></mutation>
+        <field name="HUE">0</field>
+      </block>
+    </value>
+  </block></xml>

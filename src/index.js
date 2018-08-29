@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import App from './components/App';
 import './styles/main.scss';
+import GameController from './engine/GameController';
 
 ReactDom.render(<App/>,document.getElementById("app"));
 
-//inject blockly
-let workspace = Blockly.inject('blockly',
-     {toolbox: document.getElementById('toolbox')});
+window.GameController = new GameController();
 
 function myUpdateFunction(event) {
-  var code = Blockly.JavaScript.workspaceToCode(workspace);
+  var code = Blockly.JavaScript.workspaceToCode(window.GameController.workspace);
   document.getElementById('textArea').innerHTML = code;
 }
-workspace.addChangeListener(myUpdateFunction);
+window.GameController.workspace.addChangeListener(myUpdateFunction);
+
 

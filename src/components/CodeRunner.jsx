@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
 class CodeRunner extends Component {
-
   handleRunCode = (e)=>{
-    let code = document.getElementById('textArea').innerHTML;
+
+    let code = Blockly.JavaScript.workspaceToCode(window.GameController.workspace);
+    
     eval(code);
   }
   render() {
