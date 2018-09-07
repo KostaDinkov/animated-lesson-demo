@@ -10,7 +10,7 @@ window.GameController = new GameController();
 
 function myUpdateFunction(event) {
   var code = Blockly.JavaScript.workspaceToCode(window.GameController.workspace);
-  document.getElementById('textArea').innerHTML = code;
+  window.GameController.blocklyCode = code;
 }
 window.GameController.workspace.addChangeListener(myUpdateFunction);
 

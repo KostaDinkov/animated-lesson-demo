@@ -46,9 +46,16 @@ const config = {
         test: /\.(css|scss)$/,
         exclude:/node_modules/,
         use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader',
+          {loader: 'style-loader'},
+          {
+            loader: 'css-loader',
+            options:{
+              sourceMap:true,
+              modules: true,
+              localIdentName: "[local]__[hash:base64:5]"
+            }
+          },
+          {loader: 'sass-loader'},
         ]
       },
       {

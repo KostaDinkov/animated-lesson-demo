@@ -34,10 +34,12 @@
     "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
+    "classnames": "^2.2.6",
     "eslint": "^5.2.0",
     "lodash": "^4.17.10",
     "pixi.js": "^4.8.1",
     "react": "^16.4.2",
+    "react-container-dimensions": "^1.4.1",
     "react-dom": "^16.4.2",
     "styled-components": "^3.4.1"
   }

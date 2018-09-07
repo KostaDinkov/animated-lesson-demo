@@ -1,0 +1,70 @@
+.shape{
+  fill: #00cef4;
+  stroke: #2ad2ff;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+}
+.mainFill{
+  fill: #00cef4;
+}
+
+.button {
+  
+  cursor:pointer;
+  
+}
+.button polygon {
+  fill-opacity: 0.2;
+  
+  
+}
+.button:hover text {
+  fill:white;
+ 
+}
+.button:hover polygon {
+  
+  fill-opacity: 0.3;
+}
+
+.button text {
+  fill: #2ad2ff;
+  
+}
+
+.fillBackground {
+  fill-opacity:0.05;
+}
+
+.mainStroke {
+  stroke: #2ad2ff;
+  stroke-miterlimit: 10;
+  stroke-width: 4px;
+}
+
+.fontMedium {
+  font-size: 24px;
+}
+
+.fontRobot{
+  font-family: ClassicRobotCondensed-Italic, Classic Robot Condensed;
+  font-style: italic;
+  
+}
+
+.fontBig {
+  font-size: 30px;
+}
+
+.fontHuge {
+  font-size: 36px;
+}
+
+.blur{
+  backdrop-filter: blur(50px);
+}
+
+
+
+
+
