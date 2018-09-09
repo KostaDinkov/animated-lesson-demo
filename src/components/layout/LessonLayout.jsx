@@ -54,7 +54,7 @@ class LessonLayout extends Component {
 
         <BlocklyContainer id='blockly'/>
           <GameArea>
-            <iframe 
+            {/* <iframe 
             id='unityFrame'
             src="./unity/index.html" 
             className="webgl-content" 
@@ -63,7 +63,7 @@ class LessonLayout extends Component {
             height='100%'
             width = '100%'
             style={{border:"0px #000000 none"}}>
-          </iframe> 
+          </iframe>  */}
           </GameArea>
 
         </HudGameContainer>

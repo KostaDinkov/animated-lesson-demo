@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import styles from './hud.css';
-import styled from 'styled-components'
-
+import CircleButtonSvg from './CircleButtonSvg';
 
 class Hud extends Component {
   state = {
@@ -12,9 +11,35 @@ class Hud extends Component {
     score:0,
     courseName:'Code Cadet',
     isLoading: false,
+    totalChallenges:5,
     currentChallange:2,
+    maxCompleteChallenge:3,
     isChallengeComplete:false
+  }
 
+  displayChallenges = ()=>{
+    let challengesArr = [];
+    for( let i=0; i<=this.state.totalChallenges;i++){
+      let x = 302 + i*25;
+      let y = 42;
+      let current = false;
+      let active = i+1>this.state.maxCompleteChallenge? false:true;
+      
+      if(i+1 == this.state.currentChallange){
+        current = true;
+      }
+      challengesArr.push(
+        <CircleButtonSvg 
+          active = {active}
+          current = {current} 
+          key={i} 
+          x={x.toString()} 
+          y={y.toString()} 
+          number={i+1}
+        />
+      )
+    }
+    return challengesArr;
   }
 
   handleStartBtn = (e)=>{
@@ -30,8 +55,8 @@ class Hud extends Component {
         xmlns="http://www.w3.org/2000/svg"
         viewBox ="0 0 604 754.52"
         height = "100%"
-        width = "100%"
-        preserveAspectRatio="none"
+        
+        
       >
         <filter id="sofGlow" height="300%" width="300%" x="-75%" y="-75%">
           <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blurred" />
@@ -43,16 +68,18 @@ class Hud extends Component {
           </feMerge>
         </filter>
         
-        
+        {/* Interface Poligons */}
         <g className={classnames(styles.shape, styles.fillBackground, styles.blur)} filter="url(#sofGlow)">
-          <polygon vectorEffect="non-scaling-stroke" points="2 2 262.42 2 282 22 452 22 472.85 2 581.44 2 601.97 22.52 602 92 582 112 442 112 422 112 402 92 292 92 272 72 152 72 132 52 2 52 2 2"/>
+          <path vectorEffect="non-scaling-stroke" d="M2 2 H 262.42 L 282 22 H 452 L 472.85 2 H 582 L 602 22 V 92 L 582 112 442 112 422 112 402 92 292 92 272 72 152 72 132 52 2 52 2 2"/>
+          {/* <polygon vectorEffect="non-scaling-stroke" points="2 2 262.42 2 282 22 452 22 472.85 2 581.44 2 601.97 22.52 602 92 582 112 442 112 422 112 402 92 292 92 272 72 152 72 132 52 2 52 2 2"/> */}
           <polygon id='objectivesPanel' vectorEffect="non-scaling-stroke" points="2,92 132,92 152,72 272,72 292,92 401.8,92 421.8,112 422,162 442,182 422,202 
 	422,252 392.5,252 382.5,262 210,262 197.5,252 2,252 2,231.7 12,222 12,132 2,122 "/>
           <polygon vectorEffect="non-scaling-stroke"  points="2,252 49.7,252 197.5,252 210,262 382.5,262 392,252 582,252 602,272 602,382 582,402 
 	582,672 602,692 601.8,731.7 581.8,751.7 451.4,751.7 431.3,732 152,732.2 131.6,752.5 2,752.5 2,721.9 11.9,711.9 11.9,632 
 	2,621.9 "/>
         </g>
-
+        
+        {/* Buttons */}
         <g  className={styles.button} filter="url(#sofGlow)" >
           <polygon  vectorEffect="non-scaling-stroke" className={classnames(styles.shape)} points="142 12 252 12 272 32 272 62 162 62 142 42 142 12"/>
           <text transform="translate(155 44)" className={classnames(styles.fontRobot, styles.fontBig)}>Level {this.state.currentLevel}</text>
@@ -72,7 +99,10 @@ class Hud extends Component {
           <polygon vectorEffect="non-scaling-stroke" className={classnames(styles.shape)} points="602 187 457 187 437 207 437 237 582 237 602 217 602 187"/>
           <text transform="matrix(1 0 0 1 487 217)" className={classnames(styles.fontRobot, styles.fontBig)}>Next</text>
         </g>
-
+        {}
+        
+        {this.displayChallenges()}
+        {/* Objectives text area */}
         <foreignObject  
           transform = "translate(50 120)" 
           width="350px" 
@@ -81,13 +111,13 @@ class Hud extends Component {
           <p style={{color:"#00cef4", fontSize:"18px", fontFamily:"Classic Robot Condensed", fontStyle:"italic"}}>{this.state.objectives}</p>
         </foreignObject>
 
-        
-        
+     
+        {/* Static text elements */}
         <g className = {classnames(styles.fontRobot, styles.mainFill)}>
         <text transform="matrix(1 0 0 1 471 30)" className={styles.fontBig}>SCORE</text>
         <text transform="matrix(1 0 0 1 154 93)" className={styles.fontMedium}>Objectives</text>
         <text transform="matrix(1 0 0 1 490 65)" className={styles.fontHuge}>{this.state.score}</text>
-        <text transform="matrix(1 0 0 1 437 88)" className={styles.fontMedium}>Lines of code</text>
+        <text transform="translate(440 93)" className={styles.fontMedium}>Blocks used</text>
         <text transform="matrix(1 0 0 1 7 32)" className={styles.fontMedium}>{this.state.courseName}</text>
         </g>
   </svg>
