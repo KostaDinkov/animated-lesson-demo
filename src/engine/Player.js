@@ -1,6 +1,9 @@
 export default class Player {
-
-  unityGameInstance = null;
+  constructor(gameInstance){
+    this.unityGameInstance = gameInstance;
+  }
+  
+  
   moveForward = () => {
     this.unityGameInstance.SendMessage("Player", "MoveForward");
   }

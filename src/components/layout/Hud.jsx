@@ -46,6 +46,15 @@ class Hud extends Component {
     console.log(window.GameController.blocklyCode);
     eval(window.GameController.blocklyCode);
   }
+
+  handleNextBtn = (e)=>{
+    console.log('Loading next challenge');
+  }
+
+  handleRestartBtn = (e)=>{
+    console.log ("Restarting challenge");
+  }
+
   render() {
     return (
       
@@ -90,12 +99,12 @@ class Hud extends Component {
           <text transform="translate(470 720)" className={classnames(styles.fontRobot, styles.fontBig)}>START</text>
         </g>
 
-        <g className={styles.button} filter="url(#sofGlow)">
+        <g className={styles.button} filter="url(#sofGlow)" onClick={this.handleRestartBtn}>
           <polygon vectorEffect="non-scaling-stroke" className={classnames(styles.shape)} points="437 127 582 127 602 147 602 177 457 177 437 157 437 127"/>
           <text transform="matrix(1 0 0 1 470 159)" className={classnames(styles.fontRobot, styles.fontBig)}>Restart</text>
         </g>
         
-        <g className={styles.button} filter="url(#sofGlow)" >
+        <g className={styles.button} filter="url(#sofGlow)" onClick={this.handleNextBtn} >
           <polygon vectorEffect="non-scaling-stroke" className={classnames(styles.shape)} points="602 187 457 187 437 207 437 237 582 237 602 217 602 187"/>
           <text transform="matrix(1 0 0 1 487 217)" className={classnames(styles.fontRobot, styles.fontBig)}>Next</text>
         </g>

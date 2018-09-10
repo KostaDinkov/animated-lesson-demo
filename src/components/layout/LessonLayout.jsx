@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import styled from 'styled-components';
 import Hud from './Hud';
+import UnityGame from '../UnityGame'
 
 
 
@@ -52,20 +53,10 @@ class LessonLayout extends Component {
             <Hud />
           </HudArea>
 
-        <BlocklyContainer id='blockly'/>
+          <BlocklyContainer id='blockly'/>
           <GameArea>
-            {/* <iframe 
-            id='unityFrame'
-            src="./unity/index.html" 
-            className="webgl-content" 
-            scrolling='no'
-            frameBorder='1px'
-            height='100%'
-            width = '100%'
-            style={{border:"0px #000000 none"}}>
-          </iframe>  */}
+            {/* <UnityGame/> */}
           </GameArea>
-
         </HudGameContainer>
       </Page>
     );
