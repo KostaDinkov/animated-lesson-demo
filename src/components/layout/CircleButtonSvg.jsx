@@ -18,7 +18,9 @@ class CircleButtonSvg extends Component {
 
   handleOnclick = ()=>{
     if(this.props.active){
-      console.log(`load challange ${this.props.number}`);
+      console.log(`load challange ${this.props.index}`);
+      window.GameController.startNthChallenge(this.props.index);
+      this.props.updateCurrentChallenge(this.props.index);
     }
     
   }

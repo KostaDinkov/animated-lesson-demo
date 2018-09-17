@@ -11,21 +11,21 @@ class Hud extends Component {
     score:0,
     courseName:'Code Cadet',
     isLoading: false,
-    totalChallenges:5,
-    currentChallange:2,
-    maxCompleteChallenge:3,
+    totalChallenges:3,
+    currentChallange:0,
+    maxCompleteChallenge:1,
     isChallengeComplete:false
   }
 
   displayChallenges = ()=>{
     let challengesArr = [];
-    for( let i=0; i<=this.state.totalChallenges;i++){
+    for( let i=0; i < this.state.totalChallenges;i++){
       let x = 302 + i*25;
       let y = 42;
       let current = false;
-      let active = i+1>this.state.maxCompleteChallenge? false:true;
+      let active = i > this.state.maxCompleteChallenge? false:true;
       
-      if(i+1 == this.state.currentChallange){
+      if(i == this.state.currentChallange){
         current = true;
       }
       challengesArr.push(
@@ -35,11 +35,16 @@ class Hud extends Component {
           key={i} 
           x={x.toString()} 
           y={y.toString()} 
-          number={i+1}
+          index={i}
+          updateCurrentChallenge = {this.setCurrentLevel}
         />
       )
     }
     return challengesArr;
+  }
+
+  setCurrentLevel =(index)=>{
+    this.setState({...this.state,currentChallange:index})
   }
 
   handleStartBtn = (e)=>{
@@ -48,11 +53,13 @@ class Hud extends Component {
   }
 
   handleNextBtn = (e)=>{
-    console.log('Loading next challenge');
+    if(this.state.isChallengeComplete){
+      window.GameController.nextChallenge();
+    }
   }
 
   handleRestartBtn = (e)=>{
-    console.log ("Restarting challenge");
+    window.GameController.restartChallenge();
   }
 
   render() {

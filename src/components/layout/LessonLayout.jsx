@@ -55,7 +55,7 @@ class LessonLayout extends Component {
 
           <BlocklyContainer id='blockly'/>
           <GameArea>
-            {/* <UnityGame/> */}
+            <UnityGame/>
           </GameArea>
         </HudGameContainer>
       </Page>
